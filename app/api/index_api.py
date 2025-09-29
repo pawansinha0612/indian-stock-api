@@ -10,6 +10,10 @@ import os  # 🛑 ENSURE THIS IS AT THE TOP
 import traceback
 from flask import Flask, jsonify, render_template
 import yfinance as yf
+import os
+import pandas as pd
+# ... (other imports) ...
+from flask import Flask, jsonify, render_template
 from datetime import date
 import time
 import pandas as pd
