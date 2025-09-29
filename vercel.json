@@ -1,14 +1,27 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "stock_project_main.py",
+      "src": "api/index_api.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "static/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "templates/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "stock_project_main.py"
+      "dest": "api/index_api.py"
     }
   ]
 }
