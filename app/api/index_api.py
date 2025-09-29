@@ -5,14 +5,33 @@ from typing import List, Optional, Dict, Any
 from flask import Flask, jsonify
 import yfinance as yf
 from flask import Flask, jsonify, render_template # Add render_template here
-
+import os # 🛑 New Import!
+import os  # 🛑 ENSURE THIS IS AT THE TOP
+import pandas as pd
+import requests
+from io import StringIO
+from typing import List, Optional, Dict, Any
+from flask import Flask, jsonify, render_template
+import yfinance as yf
+from datetime import date
+import time
+import pandas as pd
+import requests
+from io import StringIO
+from typing import List, Optional, Dict, Any
 import pandas as pd
 # ... (other imports) ...
 from datetime import date, datetime # <--- Added datetime for comparison
 from typing import Dict, Any, List
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
 # ... (Constants and get_nifty_50_symbols function remain the same) ...
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder=os.path.join(base_dir, '..', 'templates'), # Look one folder up for 'templates'
+    static_folder=os.path.join(base_dir, '..', 'static')      # Look one folder up for 'static'
+)
 
 NSE_SUFFIX = ".NS"
 
