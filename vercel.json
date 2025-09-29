@@ -1,27 +1,30 @@
 {
   "version": 2,
-  "scope": "dcad3089",
   "builds": [
     {
       "src": "app/api/index_api.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "30mb",
-        "runtime": "python3.7"
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/app/static/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "app/api/index_api.py"
     }
   ],
-  "installCommand": "pip install -r requirements.txt",
-  "buildCommand": "echo 'Building Python App...'",
-  "outputDirectory": "app"
+  "framework": null,
+  "github": {
+    "silent": true
+  },
+  "crons": [
+    {
+      "path": "/api/historical/NIFTY50",
+      "schedule": "0 0 * * *"
+    }
+  ],
+  "functions": {
+    "app/api/index_api.py": {
+      "runtime": "python3.11"
+    }
+  }
 }
