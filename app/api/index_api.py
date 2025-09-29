@@ -8,10 +8,6 @@ from flask import Flask, jsonify, render_template # Add render_template here
 import os # 🛑 New Import!
 import os  # 🛑 ENSURE THIS IS AT THE TOP
 import traceback
-import pandas as pd
-import requests
-from io import StringIO
-from typing import List, Optional, Dict, Any
 from flask import Flask, jsonify, render_template
 import yfinance as yf
 from datetime import date
@@ -25,13 +21,12 @@ import pandas as pd
 from datetime import date, datetime # <--- Added datetime for comparison
 from typing import Dict, Any, List
 
-base_dir = os.path.dirname(os.path.abspath(__file__))
 
 # ... (Constants and get_nifty_50_symbols function remain the same) ...
 app = Flask(
     __name__,
-    template_folder=os.path.join(base_dir, '..', 'templates'), # Look one folder up for 'templates'
-    static_folder=os.path.join(base_dir, '..', 'static')      # Look one folder up for 'static'
+    template_folder='app/templates',  # Path from the Vercel root
+    static_folder='app/static'        # Path from the Vercel root
 )
 @app.errorhandler(Exception)
 def handle_uncaught_exception(e):
