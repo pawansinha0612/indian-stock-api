@@ -7,6 +7,7 @@ import yfinance as yf
 from flask import Flask, jsonify, render_template # Add render_template here
 import os # 🛑 New Import!
 import os  # 🛑 ENSURE THIS IS AT THE TOP
+import traceback
 import pandas as pd
 import requests
 from io import StringIO
@@ -32,7 +33,16 @@ app = Flask(
     template_folder=os.path.join(base_dir, '..', 'templates'), # Look one folder up for 'templates'
     static_folder=os.path.join(base_dir, '..', 'static')      # Look one folder up for 'static'
 )
-
+@app.errorhandler(Exception)
+def handle_uncaught_exception(e):
+    # Log the traceback to the Vercel logs
+    app.logger.error(traceback.format_exc())
+    # Return a 500 response with the traceback in the body
+    return jsonify({
+        "error": "Internal Server Error (DEBUG MODE - PLEASE SHARE THIS TRACEBACK)",
+        "message": str(e),
+        "traceback": traceback.format_exc().splitlines()
+    }), 500
 NSE_SUFFIX = ".NS"
 
 # --- Add this new function to index_api.py ---
