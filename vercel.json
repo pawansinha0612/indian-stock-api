@@ -12,19 +12,8 @@
       "dest": "app/api/index_api.py"
     }
   ],
-  "framework": null,
+
   "github": {
     "silent": true
-  },
-  "crons": [
-    {
-      "path": "/api/historical/NIFTY50",
-      "schedule": "0 0 * * *"
-    }
-  ],
-  "functions": {
-    "app/api/index_api.py": {
-      "runtime": "python3.11"
-    }
   }
 }
