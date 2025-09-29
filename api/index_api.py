@@ -116,7 +116,7 @@ def fetch_single_stock_metrics(symbol: str) -> Dict[str, Any]:
 
         last_price = info.get('previousClose', info.get('regularMarketPreviousClose'))
         if last_price is None:
-            history = ticker.history(period="1d", interval="1d", timeout=5) # 5 seconds max
+            history = ticker.history(period="1d", interval="1d", timeout=15) # 5 seconds max
             last_price = history['Close'].iloc[-1] if not history.empty else None
 
         # --- New Variables for Calculation ---
