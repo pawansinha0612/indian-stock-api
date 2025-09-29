@@ -12,6 +12,7 @@ from datetime import date, datetime # <--- Added datetime for comparison
 from typing import Dict, Any, List
 
 # ... (Constants and get_nifty_50_symbols function remain the same) ...
+app = Flask(__name__)
 
 NSE_SUFFIX = ".NS"
 
