@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SENSEX 30 Live Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>📈 Live SENSEX 30 Constituents</h2>
+    <p id="status-message">Loading data...</p>
+    <div id="stock-card-grid" class="card-grid">
+    </div>
+</div>
+
+<script src="/static/script.js"></script>
+
+<script>
+    // Override the API_URL variable defined in script.js for this page
+    const API_URL = '/api/historical/SENSEX';
+
+    // Call the main fetchData function defined in script.js
+    // document.addEventListener('DOMContentLoaded', fetchData);
+</script>
+
+</body>
+</html>

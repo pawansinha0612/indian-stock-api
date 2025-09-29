@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nifty 50 Live Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+        /* ... (Your CSS styles) ... */
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📊 Live Nifty 50 Constituents</h2>
+    <p id="status-message">Loading data...</p>
+    <div id="stock-card-grid" class="card-grid">
+    </div>
+</div>
+
+<script src="/static/script.js"></script>
+
+<script>
+    // Define the correct API endpoint for this page
+    const API_URL = '/api/historical/NIFTY50';
+
+    // Call the main fetchData function defined in script.js
+    // document.addEventListener('DOMContentLoaded', fetchData);
+</script>
+
+</body>
+</html>

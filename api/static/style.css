@@ -1,0 +1,171 @@
+/* --- Base Reset and Layout --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    max-width: 1400px; /* Wider container for a modern feel */
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Stronger, softer shadow */
+}
+
+h2 {
+    color: #004c99;
+    border-bottom: 3px solid #e6f0ff;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-weight: 300; /* Lighter font weight for modern headers */
+}
+
+#status-message {
+    padding: 10px;
+    color: #555;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* --- Card Grid Layout --- */
+.card-grid {
+    display: grid;
+    /* Create a responsive grid: 3-5 columns depending on screen size */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px; /* Space between cards */
+}
+
+/* --- Individual Stock Card Styling --- */
+.stock-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-left: 5px solid #004c99; /* Primary color accent */
+    display: flex;
+    flex-direction: column;
+}
+
+.stock-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* --- Card Header & Symbol --- */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.symbol-link {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #004c99; /* Primary color for symbol */
+    text-decoration: none;
+    transition: color 0.1s;
+}
+
+.symbol-link:hover {
+    color: #0066cc;
+}
+
+.company-name {
+    font-size: 0.9rem;
+    color: #777;
+    text-align: right;
+    max-width: 50%;
+}
+
+/* --- Price Section --- */
+.price-section {
+    padding: 10px 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.price-label {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-bottom: 5px;
+}
+
+.price-value {
+    font-size: 2.2rem; /* Large, bold price */
+    font-weight: 800;
+    color: #333;
+}
+
+/* --- Metric Group (52W High/Low/Nearness) --- */
+.metric-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-grow: 1;
+    padding: 0 5px;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: #a0a0a0;
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+
+.metric-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Highlight the Near Low metric itself */
+.metric.near-low .metric-value {
+    color: #d9534f; /* Reddish color for closeness to low */
+    font-weight: 700;
+}
+
+/* --- Events Section --- */
+.event-section {
+    margin-top: 15px;
+    font-size: 0.85rem;
+}
+.event-label {
+    font-weight: 600;
+    color: #5cb85c; /* Green for positive/future events */
+    margin-right: 5px;
+}
+.event-value {
+    color: #777;
+}
+
+/* --- WOW Factor: Near Low Highlight --- */
+.stock-card.near-low-highlight {
+    background-color: #fffceb; /* Very pale yellow background */
+    border: 1px solid #ffc107;
+    border-left: 5px solid #ffc107; /* Gold accent bar */
+}
+
+.stock-card.near-low-highlight .symbol-link {
+    color: #ffc107; /* Gold text */
+}
+
+.stock-card.near-low-highlight .price-value {
+    color: #b58900; /* Darker gold price text */
+}
