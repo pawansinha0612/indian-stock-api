@@ -24,13 +24,16 @@ import pandas as pd
 # ... (other imports) ...
 from datetime import date, datetime # <--- Added datetime for comparison
 from typing import Dict, Any, List
-
+# 🛑 Replace the previous Flask initialization with this:
+# This constructs the path directly from the serverless root
+# /var/task/ + /app/templates
+ABSOLUTE_PROJECT_ROOT = "/var/task"
 
 # ... (Constants and get_nifty_50_symbols function remain the same) ...
 app = Flask(
     __name__,
-    template_folder='app/templates',  # Path from the Vercel root
-    static_folder='app/static'        # Path from the Vercel root
+    template_folder=os.path.join(ABSOLUTE_PROJECT_ROOT, 'app', 'templates'),
+    static_folder=os.path.join(ABSOLUTE_PROJECT_ROOT, 'app', 'static')
 )
 @app.errorhandler(Exception)
 def handle_uncaught_exception(e):
