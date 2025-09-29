@@ -29,6 +29,7 @@ from typing import Dict, Any, List
 # /var/task/ + /app/templates
 ABSOLUTE_PROJECT_ROOT = "/var/task"
 
+
 # ... (Constants and get_nifty_50_symbols function remain the same) ...
 app = Flask(
     __name__,
